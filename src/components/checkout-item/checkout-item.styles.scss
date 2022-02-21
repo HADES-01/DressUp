@@ -16,6 +16,16 @@
       height: 100%;
     }
   }
+  .arrow {
+    display: inline-block;
+    cursor: pointer;
+    &:first-child {
+      padding-right: 10px;
+    }
+    &:last-child{
+      padding-left: 10px;
+    }
+  }
   .name,
   .quantity,
   .price {
