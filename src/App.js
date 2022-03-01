@@ -16,13 +16,6 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { onSnapshot } from "firebase/firestore";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null,
-    };
-  }
-
   unsubcribeFromAuth = null;
 
   componentDidMount() {

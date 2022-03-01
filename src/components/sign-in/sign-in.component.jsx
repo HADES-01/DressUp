@@ -20,10 +20,12 @@ class SignIn extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
+    this.props.setLoading(true);
     const { email, password } = this.state;
     try {
-      await signInWithEmailAndPassword(auth, email, password);
       this.setState({ email: "", password: "" });
+      await signInWithEmailAndPassword(auth, email, password);
+      this.props.setLoading(false);
     } catch (err) {
       console.log(err.message);
     }

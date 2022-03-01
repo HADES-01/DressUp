@@ -22,26 +22,26 @@ class SignUp extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    this.props.setLoading(true);
     const { displayName, email, password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
       alert("Passwords dont match");
       return;
     }
     try {
-      console.log(email, password);
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      console.log(user);
-      await createUserProfileDocument(user, { displayName });
       this.setState({
         displayName: "",
         email: "",
         password: "",
         confirmPassword: "",
       });
+      await createUserProfileDocument(user, { displayName });
+      this.props.setLoading(false);
     } catch (err) {
       console.log(err.message);
     }
