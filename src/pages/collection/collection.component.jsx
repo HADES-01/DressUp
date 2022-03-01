@@ -1,7 +1,7 @@
 import "./collection.styles.scss";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
-import { selectCollection } from "../shop/shop.selector";
+import { selectCollection } from "../../redux/shop/shop.selector";
 import CollectionItem from "../../components/collection-item/collection-item.component";
 
 function CollectionPage() {
@@ -12,8 +12,8 @@ function CollectionPage() {
       <h2 className="title">{collection.title}</h2>
       <div className="items">
         {collection.items.map((item) => (
-          <div className="collection-item">
-            <CollectionItem key={item.id} item={item} />
+          <div className="collection-item" key={item.id}>
+            <CollectionItem item={item} />
           </div>
         ))}
       </div>
