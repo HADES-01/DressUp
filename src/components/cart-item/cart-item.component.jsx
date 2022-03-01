@@ -1,13 +1,14 @@
-import "./cart-item.styles.scss";
+import { CartItemContainer, ItemDetailsContainer } from "./cart-item.styles";
+
 function CartItem({ item: { imageUrl, price, name, quantity } }) {
   return (
-    <div className="cart-item">
+    <CartItemContainer>
       <img src={imageUrl} alt="item" />
-      <div className="item-details">
+      <ItemDetailsContainer>
         <span className="name">{name}</span>
         <span className="price">${price} x {quantity}</span>
-      </div>
-    </div>
+      </ItemDetailsContainer>
+    </CartItemContainer>
   );
 }
 
