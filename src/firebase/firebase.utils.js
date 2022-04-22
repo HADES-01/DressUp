@@ -50,8 +50,7 @@ export const collectionSnapshotToMap = (collections) => {
       items,
     };
   });
-  return transformedCollections
-  .reduce((acc, collection) => {
+  return transformedCollections.reduce((acc, collection) => {
     acc[collection.title.toLowerCase()] = collection;
     return acc;
   }, {});
