@@ -1,24 +1,21 @@
 import React from "react";
-import { useState } from "react";
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 import SignIn from "../../components/sign-in/sign-in.component";
 import SignUp from "../../components/sign-up/sign-up.component";
 import "./sign-in-sign-up-page.styles.scss";
+import { selectIsUserLoading } from "../../redux/user/user.selector";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-const SingInSignUpForms = ({ loading, setLoading }) => (
+const SingInSignUpForms = () => (
   <div className="sign-in-sign-up">
-    <SignIn isLoading={loading} setLoading={setLoading} />
-    <SignUp isLoading={loading} setLoading={setLoading} />
+    <SignIn />
+    <SignUp />
   </div>
 );
 
-const SignInSignUpPage = () => {
-  const [loading, setLoading] = useState(false);
-  return WithSpinner(SingInSignUpForms)({
-    isLoading: loading,
-    loading,
-    setLoading,
-  });
-};
+const mapStateToProps = createStructuredSelector({
+  isLoading: selectIsUserLoading,
+});
 
-export default SignInSignUpPage;
+export default connect(mapStateToProps)(WithSpinner(SingInSignUpForms));
