@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/client/node_modules
 /.pnp
 .pnp.js
 
@@ -24,3 +25,4 @@ yarn-error.log*
 .idea/
 temp.txt
 yarn.lock
+/client/yarn.lock
